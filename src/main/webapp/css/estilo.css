@@ -1,0 +1,388 @@
+/* -------- RESET Y FUENTE -------- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+}
+
+/* -------- CARRUSEL DE BANNER -------- */
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  z-index: -1;
+  margin-top: 0;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  animation: deslizar 15s infinite;
+}
+
+.slides img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+@keyframes deslizar {
+  0%   { margin-left: 0%; }
+  33%  { margin-left: 0%; }
+  36%  { margin-left: -100%; }
+  66%  { margin-left: -100%; }
+  69%  { margin-left: -200%; }
+  99%  { margin-left: -200%; }
+  100% { margin-left: 0%; }
+}
+
+/* -------- HEADER TRANSPARENTE -------- */
+.header-cinerama {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+.contenedor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* -------- LOGO -------- */
+.logo {
+  height: 70px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* -------- MENÚ -------- */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 17px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #ffcc00;
+}
+
+/* -------- ICONOS DERECHA -------- */
+.iconos-menu {
+  display: flex;
+  gap: 15px;
+}
+
+.icono {
+  height: 30px;
+  cursor: pointer;
+  filter: brightness(1.2);
+  transition: filter 0.3s ease;
+}
+
+.icono:hover {
+  filter: brightness(1.8);
+}
+
+/* -------- SECCIÓN PRINCIPAL -------- */
+.main-content {
+  padding-top: 750px;
+  text-align: center;
+}
+
+.bienvenida h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.bienvenida p {
+  font-size: 18px;
+  color: #dddddd;
+}
+
+/* -------- CARTELERA VISUAL -------- */
+.cartelera {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.lista-cartelera {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px 20px;
+  max-width: 850px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+
+
+.pelicula {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pelicula:hover {
+  transform: translateY(-5px);
+}
+
+
+.pelicula img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+
+.pelicula h3 {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.pelicula p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 3px 0;
+}
+.buscador-peliculas {
+  padding: 30px 20px;
+  background-color: #0d0d0d; /* Fondo uniforme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: none; /* Eliminamos el brillo blanco */
+}
+
+
+
+/* ====================== */
+/* BOTÓN "VER CARTELERA COMPLETA" */
+/* ====================== */
+.contenedor-boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.boton-ver-mas {
+  padding: 15px 40px;
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.boton-ver-mas:hover {
+  background: linear-gradient(to right, #ffe066, #ffa31a);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(255, 204, 0, 0.5);
+}
+
+/* ====================== */
+/* TÍTULO SECCIÓN CARTELERA HOME */
+/* ====================== */
+.titulo-cartelera {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.titulo-cartelera::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+/* ====================== */
+/* FOOTER MEJORADO */
+/* ====================== */
+.footer-cinerama {
+  background-color: #0b0b1a;
+  padding: 50px 20px 30px;
+  color: #f0f0f0;
+  font-size: 14px;
+  border-top: 4px solid #ff3366;
+}
+
+.footer-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.footer-col h4 {
+  font-size: 17px;
+  margin-bottom: 15px;
+  color: #ffcc00;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffcc00;
+}
+
+.footer-col.redes .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-col.redes img {
+  height: 38px;
+  width: 38px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
+}
+
+.footer-col.redes img:hover {
+  transform: scale(1.15);
+  filter: brightness(1.5);
+}
+
+/* Créditos */
+.footer-creditos {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
+  border-top: 1px solid #222;
+  font-size: 13px;
+  color: #aaa;
+}
+.formulario-buscador {
+  background-color: #1a1a1a;
+  padding: 25px 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-end;
+ box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+
+  max-width: 1000px;
+  margin: auto;
+}
+
+.formulario-buscador .campo {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.formulario-buscador .campo label {
+  color: #ffcc00;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.formulario-buscador select,
+.formulario-buscador input[type="date"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #292929;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.formulario-buscador select:focus,
+.formulario-buscador input[type="date"]:focus {
+  border: 2px solid #ffcc00;
+}
+
+.formulario-buscador .campo-boton {
+  display: flex;
+  align-items: center;
+}
+
+.formulario-buscador button {
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  color: #000;
+  font-weight: bold;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.formulario-buscador button:hover {
+  background: linear-gradient(to right, #ffe066, #ffa31a);
+  transform: scale(1.05);
+}
+
