@@ -27,10 +27,11 @@
       <scope>provided</scope>
     </dependency>
 <dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-j</artifactId>
-    <version>8.0.30</version> <!-- Usa esta versión -->
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>8.0.28</version> <!-- Esta versión sí funciona -->
 </dependency>
+
 
 
     <!-- JSTL -->
