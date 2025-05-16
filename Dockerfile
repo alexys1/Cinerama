@@ -15,7 +15,8 @@ FROM tomcat:10.1-jdk17
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copiar el .war compilado desde el paso anterior
-COPY --from=builder /app/target/Proyecto_Cine-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/Proyecto_Cine.war
+COPY --from=builder /app/target/Proyecto_Cine.war /usr/local/tomcat/webapps/ROOT.war
+
 
 
 # Exponer el puerto donde escuchará el contenedor
