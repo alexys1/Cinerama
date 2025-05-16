@@ -1,26 +1,30 @@
 
 package com.cinerama.modelo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
 
-    private static final String URL = "jdbc:mysql://" +
-            System.getenv("DB_HOST") + ":" +
-            System.getenv("DB_PORT") + "/" +
-            System.getenv("DB_NAME") +
-            "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    
-    private static final String USER = System.getenv("DB_USER");
-    private static final String PASS = System.getenv("DB_PASS");
-
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Driver MySQL
-            return DriverManager.getConnection(URL, USER, PASS);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String host = System.getenv("DB_HOST");
+            String port = System.getenv("DB_PORT");
+            String db = System.getenv("DB_NAME");
+            String user = System.getenv("DB_USER");
+            String password = System.getenv("DB_PASSWORD");
+
+            String url = "jdbc:mysql://" + host + ":" + port + "/" + db
+                       + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+
+            return DriverManager.getConnection(url, user, password);
+
+        } catch (Exception e) {
+            System.out.println("❌ Error de conexión a la base de datos:");
+            e.printStackTrace(); // Te muestra exactamente por qué falló
             return null;
         }
     }
