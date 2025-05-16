@@ -1,15 +1,24 @@
-# Usamos una imagen oficial de Tomcat con JDK 17
+# Etapa 1: compilar el proyecto con Maven
+FROM maven:3.9.4-eclipse-temurin-17 as builder
+
+# Copiamos el código fuente al contenedor
+COPY . /app
+WORKDIR /app
+
+# Compilamos el proyecto
+RUN mvn clean package
+
+# Etapa 2: imagen de producción con Tomcat
 FROM tomcat:10.1-jdk17
 
-# Limpiamos las apps por defecto de Tomcat (como ROOT, docs, etc.)
+# Limpiamos las apps por defecto
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copiamos el archivo WAR generado por Maven al directorio webapps
-# Render ejecutará "mvn clean package", así que el WAR estará en target/
-COPY target/Proyecto_Cine.war /usr/local/tomcat/webapps/Proyecto_Cine.war
+# Copiamos el .war generado desde el contenedor anterior
+COPY --from=builder /app/target/Proyecto_Cine.war /usr/local/tomcat/webapps/Proyecto_Cine.war
 
-# Expone el puerto por donde Tomcat escuchará (Render usará este)
+# Exponemos el puerto
 EXPOSE 8080
 
-# Comando por defecto para iniciar Tomcat
+# Comando por defecto para ejecutar Tomcat
 CMD ["catalina.sh", "run"]
