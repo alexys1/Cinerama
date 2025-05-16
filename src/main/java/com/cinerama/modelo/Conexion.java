@@ -15,7 +15,7 @@ public class Conexion {
             String port = System.getenv("DB_PORT");
             String db = System.getenv("DB_NAME");
             String user = System.getenv("DB_USER");
-            String password = System.getenv("DB_PASSWORD");
+            String password = System.getenv("DB_PASS");
 
             String url = "jdbc:mysql://" + host + ":" + port + "/" + db
                        + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
